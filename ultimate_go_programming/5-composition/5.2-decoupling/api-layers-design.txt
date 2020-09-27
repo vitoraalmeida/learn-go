@@ -1,0 +1,31 @@
+Resolver um problema a partir do concreto.
+Dividir em tarefas menores e simples, sabendo o que deve vir e em que ordem;
+Buscar resolver e se preocupar primeiro com o que deve ser resolvido primeiro,
+se não, o que vier após não tem importancia
+
+Após resolver o problema no concreto, no necessario no momento, verificar se 
+a situação vai mudar, se mais coisas serão inclusas no contexto. Se sim,
+refatorar para buscar a generalização. Desacoplar.
+
+Não definir interfaces logo no início. Interfaces servem para desacoplar, obter
+generalização, definir comportamentos. Isso vem com a nenecessidade.
+
+- Camada primitiva de uma api.
+    Fazer poucas coisas e fazê-las bem.
+    Busca trabalhar o mais proximo do dado, das entradas e saídas, do concreto.
+    Garantir que é testável: o dado que é passado e que é retornado é reprodizivel
+    Não exportado
+
+- Camada de baixo nível:
+    Construída com base na primitiva;
+    Algumas coisas de mais alto nível que a primitive
+    Garantir que é testável: o dado que é passado e que é retornado é reprodizivel
+    Não exportado, mas as vezes é bom exportar. Permite que o usuário tenha mais
+    controle do que esta fazendo.
+
+- Camada de alto nível:
+    Será usada diretamente. 
+    Usabilidade. Tornar a vida do usuário mais facil
+    Garantir que é testável: o dado que é passado e que é retornado é reprodizivel
+
+

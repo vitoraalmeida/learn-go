@@ -1,0 +1,10 @@
+O coletor de lixo do Go funciona de forma concorrente à execução do programa,
+sendo permitido usar até 25% do cpu disponivel, não interrompendo a execução.
+
+Porém, ocorrem momentos em que tudo é parado ("Stop the world latency") por até
+100 microsegundos, quando o GC entra em ação e em outro momento antes de terminar.
+
+Para isso, mantém-se a heap no menor tamanho possível para que o GC entre em ação
+o menor numero possivel de vezes
+
+

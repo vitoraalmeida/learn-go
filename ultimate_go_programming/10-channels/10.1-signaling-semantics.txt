@@ -1,0 +1,6 @@
+Channels são usados para orquestração, comunicação entre goroutines.
+A comunicação se dá através de sinais.
+
+Se quem envia o sinal precisa de garantias de recebimento, usar channels sem 
+buffer. Se não precisa de garantias, usa com buffer
+

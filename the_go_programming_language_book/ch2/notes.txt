@@ -1,0 +1,47 @@
+2.1- Names
+
+Go possui 25 palavras chave para serem usadas onde a sintaxe permitir
+
+break       default         func    interface   select
+case        defer           go      map         struct
+chan        else            goto    package     switch
+const       fallthrough     ir      range       type
+continue    for             import  return      var
+
+Nomes pré-declarados:
+
+    - Constantes: true false iota nil
+    - Tipos:      int int8 int16 int32 int64
+                  uint uint8 uint16 uint32 uint64 uintptr
+                  float32 float64 complex128 complex64
+                  bool byte rune string error
+
+    - Funções: make len cap new append copy close delete
+               complex real imag
+               panic recover
+
+    ** Esses nomes podem ser sobrescrevidos
+
+Se uma entidade é declarada dentro de uma função, é local à função. Se é
+declarada fora, é visivel por todo o pacote em que foi declarada.
+
+Entidades declaradas com iniciais maiúsculas, é visivel entre limites de pacotes
+
+A convenção de estilo é usar nomes pequenos. Quanto maior o escopo, mais descri-
+tivo o nome deve ser. Quanto menor, menor o nome.
+
+convenção para nomes: primeiroSegundoTerceiro. *sem underscore
+
+2.2- Declarations
+
+Uma declaração nomeia uma entidade de um programa e especifica uma ou todas suas
+propriedades.
+
+Existem 4 grandes grupos de declarações: var, const, type e func
+
+    Programs go são armazenados em arquivos com nomes terminados com .go.
+    Cada arquivo começa com uma declaração de pacote.
+    Pacotes são seguidos de imports
+    Em seguida uma sequência de declarações no nivel do pacote: tipos, variaveis,
+constantes e funções em qualquer ordem.
+

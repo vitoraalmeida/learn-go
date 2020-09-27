@@ -1,0 +1,58 @@
+"Go is an open source programming language tha makes it easy to build simple,
+riliable, and efficient software" - Go web site 
+
+Concebida em Setembro de 2007, por Robert Griesemer, Rob Pike e Ken Thompson.
+Lançada em Novembro de 2009.
+
+* As metas da Linguagem e das ferramentas que a acompanham:
+    - Expressividade
+    - Eficiência (compilação e execução)
+    - Efetividade em escrever programas confiáveis e robustos
+
+* Similar à C: 
+    - Sintaxe parecida
+    - Ferramenta para programadores profissionais
+    - Atinge máximos efeitos com minimos meios.
+
+* Mais do que uma versão atualizada:
+    - Pega emprestada e adapta boas ideias de muitas outras linguagens
+    - Evita características que levam a complexidade e código não confiável
+    - Facilita concorrência de forma nova e eficiente
+    - Abordagem flexível para abstração de dados e OOP
+    - Garbage Collection
+
+* Se encaixa bem em:
+    - Servidores em rede
+    - ferramentas e sistemas para programadores
+
+* Mas é verdadeiramente de propósito geral:
+    - Gráficas
+    - Mobile
+    - Machine Learning
+
+Frequentemente substitui linguagens de tipagem dinâmica por ser mais rapida
+e sofrer menos quebras por causa de errors de tipo inesperado
+
+* Herança de outras linguagens:
+
+C: Grande parte da syntaxe e forma de compilação
+
+Linhagem vinda de Pascal:
+|
++-> Modula-2 : Conceito de pacotes.
+        |
+        +-> Oberon: Elimina distinção de arquivos de definição e implementação
+                |   de interfaces
+                +-> Oberon2: Sintaxe de pacotes, imports, declaração de metodos
+
+CSP: Communicating sequential preocess (Tony Hoare)
+ |
+ +-> Princípios da concorrência. 
+     Em CSP, um programa é uma composição paralela de procesos que não possuem
+     estado compartilhado. Processos se comunicam e sincronizam por canais.
+
+* O projeto Go:
+    Se originou da frustração com diversos projetos de software da Google que 
+    estavam sofrendo com explosão de complexidade.
+
+    Continua...

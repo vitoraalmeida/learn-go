@@ -1,0 +1,52 @@
+Copiar dados do banco de dados do sistema Xenia e colocar no sistema Poller.
+Essa transação pode ocorrer de 5 em 5 minutos
+
+Primeiro problema: Se conectar ao Xenia. 
+    Se isso não for resolvido nada mais é possivel
+
+Segundo problema: Retirar dados do Xenia.
+    Se não for possivel retirar os dados não é possivel inserir
+
+Terceiro problema: Se conectar ao Poller
+    Sem conectar não dá pra inserir
+
+Quarto problema: Inserir no Poller.
+
+------------
+
+Camada primitiva:
+    - Resolve a conexão com o sistema Xenia
+        Quando se tem uma conexão e o sistema com o qual se está conectado
+        sofre modificações (i/o dados) se tem um estado. Quando se tem estado,
+        é um bom indicio para criar um tipo que gerencia o estado (Struct)
+
+    - Sabe como retirar o próximo dado do banco.
+        Se tem um tipo com estado, é um sinal que ele terá um comportamento p/
+        alterar esse estado (método)
+
+    - Resolve a conexão com o Poller
+    - Sabe como inserir o dado o proximo dado.
+
+Camada de baixo nivel:
+    - Vai retirar em lote dados de Xenia e colocar em lote no Poller
+    - Faz com base no que foi feito na camada primitiva
+    - Usar funções deixa mais explicito o que se está fazendo é mais simples,
+      mais preciso. Métodos escondem complexidade
+
+Camada de alto nivel:
+    - Apresenta a funcionalidade de copiar um lote de dados de um lado para o 
+      outro
+
+---------------
+
+Tudo vai permecer como está? Algo novo será inserido?
+
+Se não, se o código foi revisado e parece correto, acabou.
+
+O problema muda e mais sistemas de origem e destino aparecem. É um sinal que
+é preciso refatorar, desacoplar o código.
+Definir comportamentos em comum entre os participantes.
+De alguns é preciso retirar dados e em outros é preciso colocar.
+Definir interface agora ajuda a desacoplar. Defini-se os que retirar e os que
+colocar. Comportamentos em comum. Partiu-se do concreto para o abstrato;
+Composição por comportamentos em comum.
