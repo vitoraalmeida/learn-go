@@ -1,4 +1,4 @@
-package main
+package caching
 
 /*
 
@@ -50,7 +50,7 @@ type data struct {
 //cabeça da lista
 var list *data
 
-func init2() {
+func init() {
 	//calda da lista
 	var last *data
 

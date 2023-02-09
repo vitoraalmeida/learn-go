@@ -6,7 +6,7 @@ type user struct {
 	likes int
 }
 
-func main6() {
+func main() {
 	users := make([]user, 3) //cria um backing array de users
 
 	shareUser := &users[1] //cria um ponteiro para um elem no backing array

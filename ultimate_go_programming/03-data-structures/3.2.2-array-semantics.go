@@ -3,7 +3,7 @@ package main // strings literais não são criadas na heap. quando aqui se diz
 import "fmt"
 
 //								  0   1   2   3   4
-func main2() { //    |-----------+---+---+---+---+---+
+func main() { //    |-----------+---+---+---+---+---+
 	var fruits [5]string //     |nil|nil|nil|nil|nil|
 	fruits[0] = "Apple"  //--+  +---+---+---+---+---+
 	fruits[1] = "Orange" //--|  | 0 | 0 | 0 | 0 | 0 |

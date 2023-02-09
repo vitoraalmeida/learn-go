@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main5() {
+func main() {
 	fruits1 := make([]string, 3, 4)
 	fruits1[0] = "Apple"  //
 	fruits1[1] = "Orange" //

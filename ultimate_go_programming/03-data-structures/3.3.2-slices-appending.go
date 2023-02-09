@@ -2,12 +2,14 @@ package main
 
 import "fmt"
 
-func main4() {
+func main() {
 
 	var data []string //zero value, não aloca o backing array
-	//len 0 cap 0
-	inspectSlice(data) //função definida no arquivo anterior
-
+	//len 0 cap 0 -> [nil][0][0]
+	//datainit := []string{} // [*][0][0] inicializado com um ponteiro para um struct vazio
+	//                         |
+	//                         +-------- struct{}
+	inspectSlice(data)
 	lastCap := cap(data)
 
 	//fazer append num slice com zero value (nil, 0, 0) cria o backing
@@ -50,4 +52,11 @@ func main4() {
 		}
 	}
 
+}
+
+func inspectSlice(slice []string) {
+	fmt.Printf("Length[%d] Capacity[%d]\n", len(slice), cap(slice))
+	for i, s := range slice { //semantica de valor
+		fmt.Printf("[%d] %p %s\n", i, &slice[i], s)
+	}
 }

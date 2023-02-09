@@ -8,7 +8,7 @@ import "fmt"
  Strings, apesar de guardar um ponteiro, tem zero value vazio, não nil, então
  não é reference type.
 */
-func main3() {
+func main() {
 	/*
 		slices são estruturas de dados de 3 words (24 bytes - arch 64bits):
 		ponteiro para o array que baseia o slice, tamanho usado e capacidade.
