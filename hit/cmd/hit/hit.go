@@ -4,8 +4,11 @@ import (
 	"flag"
 	"fmt"
 	"io"
+	"net/http"
 	"os"
 	"runtime"
+
+	"github.com/vitoraalmeida/learn-go/hit/hit"
 )
 
 const (
@@ -50,8 +53,28 @@ func run(s *flag.FlagSet, args []string, out io.Writer) error {
 	}
 
 	fmt.Fprintln(out, banner())
+
 	fmt.Fprintf(out, "Making %d requests to %s with a concurrency level of %d.\n",
 		f.n, f.url, f.c)
+
+	if f.rps > 0 {
+		fmt.Fprintf(out, "(RPS: %d)\n", f.rps)
+	}
+
+	request, err := http.NewRequest(http.MethodGet, f.url, http.NoBody)
+
+	if err != nil {
+		return err
+	}
+
+	c := &hit.Client{
+		C:   f.c,
+		RPS: f.rps,
+	}
+
+	sum := c.Do(request, f.n)
+
+	sum.Fprint(out)
 
 	return nil
 }

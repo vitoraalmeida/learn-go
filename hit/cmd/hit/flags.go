@@ -17,8 +17,8 @@ Usage:
 Options:`
 
 type flags struct {
-	url  string
-	n, c int //n = número de requests | c = nível de concorrência
+	url       string
+	n, c, rps int //n = número de requests | c = nível de concorrência | rps = throtling
 }
 
 func (f *flags) parse(s *flag.FlagSet, args []string) (err error) {
@@ -60,6 +60,7 @@ func (f *flags) parse(s *flag.FlagSet, args []string) (err error) {
 	// utlizando um tipo customizado que só permite inteiros positivos
 	s.Var(toNumber(&f.n), "n", "Number of requests to make")
 	s.Var(toNumber(&f.c), "c", "Concurrency level")
+	s.Var(toNumber(&f.rps), "t", "Throttle requests per second")
 	if err := s.Parse(args); err != nil {
 		return err
 	}
