@@ -19,17 +19,6 @@ const (
  \ \_\ \_\  \ \_\    \ \_\
   \/_/\/_/   \/_/     \/_/
 `
-
-/* utilizando usage do flag
-	usageText = `
-Usage:
-  -url
-       HTTP server URL to make requests (required)
-  -n
-       Number of requests to make
-  -c
-       Concurrency level`
-*/
 )
 
 func banner() string { return bannerText[1:] } //remove o primeiro \n

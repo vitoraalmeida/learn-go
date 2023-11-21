@@ -22,33 +22,6 @@ type flags struct {
 }
 
 func (f *flags) parse(s *flag.FlagSet, args []string) (err error) {
-	/* comentado pois passando diretamente os campos do struct que já temos ao invés de salvar na variável interna do flag
-
-		var (
-			// o pacote flag tem um objeto em que são armazenadas as Flags com seu nome
-			// e um ponteiro do tipo especificado para a flag, que é retornado pelo
-			// método flag.Tipo(). Quando chamamos flag.Parse(), os argumetos são passadps
-			// , parseados pelos nomes definidos, o valor é armazenado e então podemos
-			// ter acesso através do ponteiro.
-
-			//       tipo    nome  default  uso
-			u = flag.String("url", "", "HTTP server `URL` to make requests (required)")
-			// marcar um valor com ` ` faz com que a mensagem de uso mostre que o valor
-			// daquele argumento é do tipo entre as crases
-
-			// defaults já definidos na função main
-			n = flag.Int("n", f.n, "Number of requests to make")
-			c = flag.Int("c", f.c, "Concurrency level")
-			// podemos passar as flags em qualquer ordem, inclusive passar mais de
-			// uma vez a mesma, sendo que o último valor será o definido
-			// cada flag pode ser usada com - ou --
-			// por padrão vem um -h ou -help implementado, que inclusive mostra os valores default
-		)
-	flag.Parse()
-	f.url = *u
-	f.n = *n
-	f.c = *c
-	*/
 
 	s.Usage = func() {
 		fmt.Fprintln(os.Stderr, usageText[1:])
@@ -129,49 +102,3 @@ func (n *number) Set(s string) error {
 func (n *number) String() string {
 	return strconv.Itoa(int(*n))
 }
-
-/*
-//parsing command line args manually
-type parseFunc func(string) error
-
-//                       nomeando o retorno já define a variável
-func (f *flags) parse() (err error) {
-	parsers := map[string]parseFunc{
-		"url": f.urlVar(&f.url),
-		"n":   f.intVar(&f.n),
-		"c":   f.intVar(&f.c),
-	}
-
-	for _, arg := range os.Args[1:] {
-		n, v, ok := strings.Cut(arg, "=")
-		if !ok {
-			continue
-		}
-		parse, ok := parsers[strings.TrimPrefix(n, "-")]
-		if !ok {
-			continue
-		}
-		if err = parse(v); err != nil {
-			err = fmt.Errorf("invalid value %q for flag %s: %w", v, n, err)
-			break
-		}
-	}
-
-	return err
-}
-
-func (f *flags) urlVar(p *string) parseFunc {
-	return func(s string) error {
-		_, err := url.Parse(s)
-		*p = s
-		return err
-	}
-}
-
-func (f *flags) intVar(p *int) parseFunc {
-	return func(s string) (err error) {
-		*p, err = strconv.Atoi(s)
-		return err
-	}
-}
-*/
